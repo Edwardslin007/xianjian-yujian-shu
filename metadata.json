@@ -1,0 +1,10 @@
+{
+  "name": "仙剑御剑术",
+  "description": "基于 MediaPipe Hands 手势识别与 Boids 鸟群算法驱动的 3D/Canvas 仙剑剑阵互动游戏",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
