@@ -7,10 +7,10 @@ export function generateStandaloneHTML(): string {
   <title>仙剑御剑术 - 手势御剑飞仙 (单文件纯净版)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <!-- MediaPipe Hands & Camera CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <!-- MediaPipe Hands & Camera CDN（npmmirror 国内可达源，锁定版本） -->
+  <script src="https://registry.npmmirror.com/@mediapipe/camera_utils/0.3.1675466862/files/camera_utils.js"></script>
+  <script src="https://registry.npmmirror.com/@mediapipe/hands/0.4.1675469240/files/hands.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -680,7 +680,7 @@ export function generateStandaloneHTML(): string {
       }
 
       handsInstance = new Hands({
-        locateFile: (file) => \`https://cdn.jsdelivr.net/npm/@mediapipe/hands/\${file}\`
+        locateFile: (file) => \`https://registry.npmmirror.com/@mediapipe/hands/0.4.1675469240/files/\${file}\`
       });
 
       handsInstance.setOptions({

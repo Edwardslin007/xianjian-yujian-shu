@@ -7,10 +7,13 @@
     <meta name="description" content="基于 MediaPipe Hands 手势识别与 Boids 鸟群算法驱动的仙剑剑阵互动系统" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <!-- MediaPipe Hands & Camera Utils CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <!-- 字体非阻塞加载：被墙环境下不阻塞后续脚本执行，加载失败时回退系统字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet"></noscript>
+    <!-- MediaPipe 本地自托管（原 jsdelivr CDN 在国内不可达，导致摄像头永远启动失败） -->
+    <script>window.MEDIAPIPE_BASE = './mediapipe/';</script>
+    <script src="./mediapipe/camera_utils.js"></script>
+    <script src="./mediapipe/hands.js"></script>
   </head>
   <body class="bg-slate-950 text-slate-100 overflow-hidden select-none">
     <div id="root"></div>

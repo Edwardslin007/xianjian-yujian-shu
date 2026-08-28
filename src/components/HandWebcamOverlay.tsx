@@ -47,8 +47,12 @@ export const HandWebcamOverlay: React.FC<Props> = ({
 
       // Initialize Hands
       if (!handsInstanceRef.current) {
+        // 资源基址由 index.html 注入：本地/静态部署为 './mediapipe/'，
+        // 妙搭等平台可注入完整 URL 映射（window.MEDIAPIPE_BASE 为对象时按文件名查表）
+        const mpBase = (win.MEDIAPIPE_BASE as string | Record<string, string> | undefined) ?? './mediapipe/';
         const hands = new win.Hands({
-          locateFile: (file: string) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
+          locateFile: (file: string) =>
+            typeof mpBase === 'string' ? mpBase + file : mpBase[file] ?? './mediapipe/' + file,
         });
 
         hands.setOptions({
